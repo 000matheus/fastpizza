@@ -1,0 +1,125 @@
+@font-face{
+	font-family: Open Sans;
+	src: url('fontes/OpenSans-Regular.ttf');
+}
+
+@font-face{
+	font-family: Bebas Neue;
+	src: url('fontes/BebasNeue-Regular.ttf');;
+}
+
+body{
+	background: #FFEDCC;
+	font-family: Open Sans;
+}
+
+h1, h2{
+	font-family: Bebas Neue;
+}
+
+h6{
+	font-size: 11px;
+}
+
+.logo-inicial{
+	text-align: center;
+	padding: 4%;
+	max-width: 100%;
+	/* transition: 2s; */
+}
+
+.logo-inicial img{max-width: 100%;}
+
+.navbar{
+	background-color: #B90000;
+	color: #fff;
+}
+
+.navbar a{
+	color: #fff;
+	text-decoration: none;
+}
+
+.side-menu{
+	height: 100%; /* 100% Full-height */
+	width: 0; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0;
+	left: 0;
+	background-color: #660000;
+	overflow-x: hidden; /* Disable horizontal scroll */
+	transition: 0.6s; /* 0.5 second transition effect to slide in the sidebar */
+	color: #fff;
+}
+
+.side-menu a{
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.side-menu ul{
+	list-style-type: none;
+}
+
+.side-menu .row{
+	padding: 15px;
+}
+
+.side-menu .row .col-md-12{
+	margin: 5px;
+	padding: 5px;
+}
+
+.side-menu .row .col-md-12 a{
+	padding: 0;
+}
+
+#side-user-info{
+	background-color: #900;
+}
+
+.botao-menu{
+	font-size: 24px;
+}
+
+.link-menu{
+	font-size: 18px;
+	margin-left: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .link-menu {
+    font-size: 12px;
+	margin-left: 5px;
+  }
+
+  .botao-menu{
+  	font-size: 16px; 
+  }
+
+  .navbar{
+  	height: 40px;
+  }
+
+ /* .navbar-links{
+  	display: none;
+  } */
+}
+
+.side-menu-icon{
+	padding: 10px;
+}
+
+footer{
+	background-color: #B90000;
+	color: #FFE;
+	min-height: 30px;
+	margin-top: 10px;
+	text-align: center;
+	padding: 5px;
+	bottom: 0px;
+	/* margin-bottom: 1px; */
+}
+

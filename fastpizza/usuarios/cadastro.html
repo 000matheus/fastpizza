@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>Fast Pizza</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../config/mainScript.js"></script>
+	<link rel="stylesheet" type="text/css" href="../config/style.css">
+	<link rel="icon" type="imagem/png" href="../img/logo.png" />
+
+	<style type="text/css">
+		.container{
+			background-color: white;
+			box-shadow: 0 2px #999; 
+			border-radius: 3px;
+			padding: 20px;
+		}
+
+		legend{
+			border-bottom: 1px solid #666;
+			padding: 5px;
+			margin-bottom: 15px;
+		}
+
+		input{
+			margin: 1px 0;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		function ConfirmaSenha() {
+			a = document.getElementById('cadastro_senha').value;
+			b = document.getElementById('cadastro_senha2').value;
+
+			if (a != b){
+				alert("A senha confirmada está diferente. Digite e confirme sua senha novamente.");
+				document.getElementById('cadastro_senha').value = '';
+				document.getElementById('cadastro_senha2').value = '';
+			}
+		}
+	</script>
+	
+</head>
+<body>
+
+	<nav class="navbar">
+		<a href="#" onclick="abreMenu();" class="botao-menu">☰</a>
+		<div class="navbar-links">
+			<a href="../" onClick="window.location.reload(true);" class="link-menu">Início</a>
+		</div>
+		
+	</nav>
+
+	<div class="side-menu" id="side-menu">
+		<div class="row">
+			<div class="col-md-12">
+				<a href="#" onclick="fechaMenu();" class="botao-fechar-menu"><img src="../img/icons/fechar.png" class="side-menu-icon">Fechar</a>
+			</div>
+			<div class="col-md-12">
+				<a href="cadastro.html"><img src="../img/icons/cadastro.png" class="side-menu-icon">Cadastrar</a>
+			</div>
+			<div class="col-md-12">
+				<a href="#" data-toggle="modal" data-target="#myModal"><img src="../img/icons/entrar.png" class="side-menu-icon">Entrar</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Login</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<form action="acoes/login.php" method="POST">
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input type="email" class="form-control" id="email" maxlength="50" placeholder="Digite seu e-mail" name="email">
+						</div>
+						<div class="form-group">
+							<label for="pwd">Senha:</label>
+							<input type="password" class="form-control" id="pwd" maxlength="30" placeholder="Digite sua senha" name="senha">
+						</div>
+						<button type="submit" class="btn btn-success">Entrar</button>
+						<!--span style="float: right;"><a href="recuperar_senha/index.html" class="btn">Esqueci minha senha</a></span-->
+					</form>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="logo-inicial" id="logo-inicial">
+			<img src="../img/logo.png">
+		</div>
+		<div class="container">
+			<form action="acoes/cadastrar.php" id="form_cadastro" method="POST">
+				<fieldset>
+					<legend>Cadastro de Cliente</legend>
+					<p>
+						<label for="cadastro_nome">Nome:</label><br>
+						<input type="text" name="nome" id="cadastro_nome" size="30" maxlength="30" required>
+					</p>
+					<p>
+						<label for="cadastro_email">Email:</label><br>
+						<input type="email" name="email" id="cadastro_email" size="30" maxlength="50" required>
+					</p>
+					<p>
+						<label for="cadastro_endereco">Endereço<small>(Rua, número e complemento)</small>:</label><br>
+						<input type="text" name="endereco" id="cadastro_endereco" size="30" maxlength="120" required>
+					</p>
+					<p>
+						<label for="cadastro_bairro">Bairro:</label><br>
+						<input type="text" name="bairro" id="cadastro_bairro" size="30" maxlength="30" required>
+					</p>
+					<p>
+						<label for="cadastro_cidade">Cidade:</label><br>
+						<input type="text" name="cidade" id="cadastro_cidade" size="30" maxlength="30" required>
+					</p>
+					<p>
+						<label for="cadastro_uf">Estado:</label><br>
+						<select name="uf" id="cadastro_uf" required>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="SP">São Paulo</option>
+							<option value="MG">Minas Gerais</option>
+						</select>
+					</p>
+					<p>
+						<label for="cadastro_telefone">Telefone ou celular:</label><br>
+						<input type="text" name="ddd" id="cadastro_telefone" size="5" maxlength="2" required>
+						<input type="text" name="telefone" id="cadastro_telefone" size="25" maxlength="9" required>
+					</p>
+					<p>
+						<label for="cadastro_senha">Senha:</label><br>
+						<input type="password" name="senha" id="cadastro_senha" size="30" maxlength="30" required>
+					</p>
+					<p>
+						<label for="cadastro_senha2">Confirme sua senha:</label><br>
+						<input type="password" name="senha2" id="cadastro_senha2" size="30" maxlength="50" required>
+					</p>
+					<p>
+						<button type="submit" class="btn btn-primary" onclick="ConfirmaSenha()">Cadastrar</button>
+					</p>
+				</fieldset>
+				
+			</form>
+		</div>
+	</div>
+	
+	<footer>
+		Fast Pizza® | 2019
+	</footer>
+
+</body>
+</html>
