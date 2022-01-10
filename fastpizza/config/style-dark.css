@@ -9,8 +9,14 @@
 }
 
 body{
-	background: #FFEDCC;
+	background: #000;
 	font-family: Open Sans;
+}
+
+.container{
+	background-color: #666;
+	padding: 20px;
+	margin: 5px;
 }
 
 h1, h2{
@@ -23,7 +29,8 @@ h6{
 
 .logo-inicial{
 	text-align: center;
-	padding: 4%;
+	padding: 10px;
+	margin: 30px;
 	max-width: 100%;
 	/* transition: 2s; */
 }
@@ -113,10 +120,10 @@ h6{
 }
 
 footer{
-	background-color: #B90000;
-	color: #FFE;
+	background-color: #032;
 	width: 100%;
 	position: relative;
+	color: #FFE;
 	min-height: 30px;
 	margin-top: 10px;
 	text-align: center;
@@ -125,3 +132,14 @@ footer{
 	/* margin-bottom: 1px; */
 }
 
+#form-login{
+	text-align: center;
+	margin: 50px auto;
+	width: 300px;
+	box-shadow: #ccc 0px 0px 5px 1px;
+	border-radius: 5px;
+}
+
+#form-login input{
+	margin: 10px;
+}
