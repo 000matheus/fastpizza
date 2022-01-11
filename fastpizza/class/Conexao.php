@@ -7,7 +7,7 @@ class Conexao{
 
 	private $login = "root";
 	private $senha = "";
-	protected $database = "mysql:host=localhost;dbname=id11078974_fastpizza;charset=utf8";
+	protected $database = "mysql:host=localhost;dbname=fastpizza;charset=utf8";
 	protected $pdo;
 
 	function __construct()
