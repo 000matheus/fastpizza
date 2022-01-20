@@ -5,12 +5,13 @@
 
 @font-face{
 	font-family: Bebas Neue;
-	src: url('fontes/BebasNeue-Regular.ttf');;
+	src: url('fontes/BebasNeue-Regular.ttf');
 }
 
 body{
 	background: #000;
 	font-family: Open Sans;
+	color: #ccc;
 }
 
 .container{
@@ -38,13 +39,17 @@ h6{
 .logo-inicial img{max-width: 100%;}
 
 .navbar{
-	background-color: #B90000;
+	background-color: #a41424;
 	color: #fff;
 }
 
 .navbar a{
 	color: #fff;
 	text-decoration: none;
+}
+
+.logo-nav img{
+	height: 60px;
 }
 
 .side-menu{
@@ -93,7 +98,7 @@ h6{
 
 .link-menu{
 	font-size: 18px;
-	margin-left: 30px;
+	margin: 15px;
 }
 
 @media screen and (max-width: 600px) {
@@ -120,15 +125,15 @@ h6{
 }
 
 footer{
-	background-color: #032;
+	background-color: #045c44;
 	width: 100%;
-	position: relative;
+	position: absolute;
 	color: #FFE;
 	min-height: 30px;
 	margin-top: 10px;
 	text-align: center;
 	padding: 5px;
-	bottom: 0px;
+	bottom: 0;
 	/* margin-bottom: 1px; */
 }
 

@@ -24,14 +24,60 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
 
+
 </head>
 
+<style>
+    .item-modulo {
+        background-color: #666;
+        text-align: center;
+        margin: 50px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .modulos {
+        width: 30%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    /*.icon-modulo{
+        background-color: #ccc;
+        padding: 10px;
+        border-radius: 10px;
+    }*/
+</style>
+
 <body>
-    <div class="logo-inicial" id="logo-inicial">
-        <img src="../img/logo.png">
+
+    <nav class="navbar">
+        <div class="logo-nav" id="logo-nav">
+            <img src="../img/logo.png">
+        </div>
+        <div class="navbar-links">
+            <a href="#" class="link-menu">Nome de Usuário</a>|
+            <a href="#" class="link-menu">Sair</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="modulos">
+            <div class="item-modulo">
+                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+                <p>1</p>
+            </div>
+            <div class="item-modulo">
+                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+                <p>2</p>
+            </div>
+            <div class="item-modulo">
+                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+                <p>3</p>
+            </div>
+        </div>
     </div>
-
-
 
     <footer>
         Fast Pizza® | 2019
