@@ -1,7 +1,7 @@
 <?php
-include_once '../class/Cliente.php';
+include_once '../../class/Cliente.php';
 
-header("Location: cadastroconcluido.html");
+header("Location: ../cadastroconcluido.html");
 
 $cliente = new Cliente();
 

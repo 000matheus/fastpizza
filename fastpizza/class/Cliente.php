@@ -161,7 +161,7 @@ Class Cliente{
 		if (count($users) <= 0){
 			//Usuário não encontrado.
 			session_destroy();
-			header("Location: falhalogin.html");
+			header("Location: ../falhalogin.html");
 			exit;
 		}else{
 			// pega o primeiro usuário
@@ -235,7 +235,7 @@ Class Cliente{
 
 		if (!isset($this->email) && !isset($this->nome)){
 			session_destroy();
-			header("Location: ../falhalogin.html");
+			header("Location: falhalogin.html");
 			exit;
 		}else{
  			// echo "<h1>SEM TEMPO IRMÃO</h1>";
