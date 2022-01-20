@@ -122,13 +122,13 @@ h6{
 footer{
 	background-color: #032;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	color: #FFE;
 	min-height: 30px;
 	margin-top: 10px;
 	text-align: center;
 	padding: 5px;
-	bottom: 0;
+	bottom: 0px;
 	/* margin-bottom: 1px; */
 }
 
