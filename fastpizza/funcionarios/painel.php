@@ -28,26 +28,26 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
 </head>
 
 <style>
-    .item-modulo {
+    .col-sm-4 {
         background-color: #666;
         text-align: center;
-        margin: 50px;
+        margin: 20px auto;
         padding: 10px;
         border-radius: 10px;
     }
 
-    .modulos {
-        width: 30%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
+    .row {
+        width: 90%;
+        margin: auto;
     }
 
-    /*.icon-modulo{
-        background-color: #ccc;
+    .row p {
         padding: 10px;
-        border-radius: 10px;
-    }*/
+    }
+
+    footer {
+        position: absolute;
+    }
 </style>
 
 <body>
@@ -62,20 +62,24 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="modulos">
-            <div class="item-modulo">
-                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
-                <p>1</p>
-            </div>
-            <div class="item-modulo">
-                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
-                <p>2</p>
-            </div>
-            <div class="item-modulo">
-                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
-                <p>3</p>
-            </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+            <p>Funcionários</p>
+        </div>
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/vendas.png">
+            <p>Vendas</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/produtos.png">
+            <p>Produtos</p>
+        </div>
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
+            <p>Clientes</p>
         </div>
     </div>
 
