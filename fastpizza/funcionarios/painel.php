@@ -9,6 +9,7 @@ $cliente = new Funcionario();
 $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +24,6 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <script type="text/javascript" src="../config/mainScript.js"></script>
     <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
-
 
 </head>
 
@@ -48,6 +48,14 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     footer {
         position: absolute;
     }
+
+    a{
+        color: inherit;
+    }
+
+    a:hover{
+        color: #fff;
+    }
 </style>
 
 <body>
@@ -58,28 +66,34 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
         </div>
         <div class="navbar-links">
             <a href="#" class="link-menu">Nome de Usuário</a>|
-            <a href="#" class="link-menu">Sair</a>
+            <a href="acoes/logout.php" class="link-menu">Sair</a>
         </div>
     </nav>
 
     <div class="row">
         <div class="col-sm-4">
-            <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
-            <p>Funcionários</p>
+            <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
+            <p><a href="telaclientes.php">Clientes</a></p>
         </div>
-        <div class="col-sm-4">
-            <img class="icon-modulo" src="../img/icons/modulos/vendas.png">
-            <p>Vendas</p>
-        </div>
+        <?php
+            if($_SESSION['cargo'] == 1){
+                echo '
+            <div class="col-sm-4">
+                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+                <p><a href="telafuncionarios.php">Funcionários</a></p>
+            </div>
+                ';
+            }
+        ?>   
     </div>
     <div class="row">
         <div class="col-sm-4">
             <img class="icon-modulo" src="../img/icons/modulos/produtos.png">
-            <p>Produtos</p>
+            <p><a href="telaprodutos.php">Produtos</a></p>
         </div>
         <div class="col-sm-4">
-            <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
-            <p>Clientes</p>
+            <img class="icon-modulo" src="../img/icons/modulos/vendas.png">
+            <p><a href="telavendas.php">Vendas</a></p>
         </div>
     </div>
 

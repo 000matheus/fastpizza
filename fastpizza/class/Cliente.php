@@ -1,6 +1,7 @@
 <?php
 
-Class Cliente{
+class Cliente
+{
 	protected $id;
 	protected $nome;
 	protected $email;
@@ -11,15 +12,16 @@ Class Cliente{
 	protected $uf;
 	protected $telefone;
 
-	public function __construct(){
-
+	public function __construct()
+	{
 	}
 
-	public function __destruct(){
-		
+	public function __destruct()
+	{
 	}
 
-	public function SetCliente($id, $nome, $email, $senha, $endereco, $bairro, $cidade, $uf, $telefone){
+	public function SetCliente($id, $nome, $email, $senha, $endereco, $bairro, $cidade, $uf, $telefone)
+	{
 		//adicionar atributo telefone aos métodos e formulários
 		$this->id = $id;
 		$this->nome = $nome;
@@ -34,27 +36,38 @@ Class Cliente{
 		return null;
 	}
 
-	public function getNome(){
+	public function getNome()
+	{
 		return $this->nome;
 	}
 
-	public function getEmail(){
+	public function getEmail()
+	{
 		return $this->email;
 	}
 
-	public function SelectCliente($id){
+	public function setId($id)
+	{
 		$this->id = $id;
+	}
 
-		include 'Conexao.php';
-
-		$conexao = new Conexao();
-		$pdo = $conexao->getPDO();
+	public function SelectCliente()
+	{
+		require_once 'Conexao.php';
 
 		try {
-			$sql = "SELECT * FROM clientes WHERE id = $this->id";
+			$conexao = new Conexao();
+			$pdo = $conexao->getPDO();
+
+			if (isset($this->id)) {
+				$sql = "SELECT * FROM clientes WHERE id = $this->id";
+			} else {
+				$sql = "SELECT * FROM clientes";
+			}
+
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
-			$resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+			$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
@@ -62,7 +75,8 @@ Class Cliente{
 		return $resultado;
 	}
 
-	public function InsertCliente($nome, $email, $senha, $endereco, $bairro, $cidade, $uf, $telefone){
+	public function InsertCliente($nome, $email, $senha, $endereco, $bairro, $cidade, $uf, $telefone)
+	{
 
 		$this->nome = $nome;
 		$this->email = $email;
@@ -98,7 +112,8 @@ Class Cliente{
 		}
 	}
 
-	public function UpdateCliente($id, $nome, $email, $endereco, $bairro, $cidade, $uf){
+	public function UpdateCliente($id, $nome, $email, $endereco, $bairro, $cidade, $uf)
+	{
 		include "Conexao.php";
 
 		$this->id = $id;
@@ -124,15 +139,16 @@ Class Cliente{
 			$stmt->bindParam(':bairro', $this->bairro);
 			$stmt->bindParam(':cidade', $this->cidade);
 			$stmt->bindParam(':uf', $this->uf);
-			
+
 			$stmt->execute();
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
 	}
 
-	public function Login($email, $senha, $redirecionamento){
-		
+	public function Login($email, $senha, $redirecionamento)
+	{
+
 		session_start();
 
 		$this->email = $email;
@@ -158,12 +174,12 @@ Class Cliente{
 
 		$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		if (count($users) <= 0){
+		if (count($users) <= 0) {
 			//Usuário não encontrado.
 			session_destroy();
 			header("Location: ../falhalogin.html");
 			exit;
-		}else{
+		} else {
 			// pega o primeiro usuário
 			$usuario = $users[0];
 			$_SESSION['id'] = $usuario['id'];
@@ -174,10 +190,10 @@ Class Cliente{
 			header("Location: $redirecionamento");
 			exit;
 		}
-
 	}
 
-	public function UpdateSenha($id, $senha){
+	public function UpdateSenha($id, $senha)
+	{
 		$this->id = $id;
 		$this->senha = md5(sha1($senha));
 
@@ -201,7 +217,8 @@ Class Cliente{
 		}
 	}
 
-	public function VerificarSenha($id, $senha, $redirecionamento){
+	public function VerificarSenha($id, $senha, $redirecionamento)
+	{
 		$this->id = $id;
 		$this->senha = md5(sha1($senha));
 
@@ -223,24 +240,23 @@ Class Cliente{
 		if ($resultado[0]['senha'] != $this->senha) {
 			header("Location: $redirecionamento");
 			exit;
-		}else{
+		} else {
 			return true;
 		}
 	}
 
 
-	public function verificarSessao($email, $nome){
+	public function verificarSessao($email, $nome)
+	{
 		$this->email = $email;
 		$this->nome = $nome;
 
-		if (!isset($this->email) && !isset($this->nome)){
+		if (!isset($this->email) && !isset($this->nome)) {
 			session_destroy();
 			header("Location: falhalogin.html");
 			exit;
-		}else{
- 			// echo "<h1>SEM TEMPO IRMÃO</h1>";
+		} else {
+			// echo "<h1>SEM TEMPO IRMÃO</h1>";
 		}
 	}
 }
-
-?>
