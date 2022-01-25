@@ -11,7 +11,11 @@ if(isset($_GET['clienteId'])){
 $consulta = $cliente->SelectCliente();
 
 foreach ($consulta as $linha) {
-    echo $linha['nome'].' | '.$linha['email'].'<br>';
+    echo '<tr>
+        <td><a href="tela-editar-clientes.php?id='.$linha['id'].'">'.$linha['nome'].'</a></td>
+        <td>'.$linha['email'].'</td>
+        <td>'.$linha['tel'].'</td>
+    </tr>';
 }
 
 ?>

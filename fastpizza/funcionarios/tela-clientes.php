@@ -1,13 +1,5 @@
 <?php
-
-session_start();
-
-require_once '../class/Funcionario.php';
-
-$funcionario = new Funcionario();
-
-$funcionario->verificarSessao($_SESSION['email'], $_SESSION['nome']);
-
+require 'acoes/verificar-sessao.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +17,39 @@ $funcionario->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
 
+    <style>
+
+        .container{
+            margin: 30px auto;
+        }
+
+        .tabela-clientes {
+            margin: 30px auto;
+            width: 85%;
+        }
+
+        .tabela-clientes,
+        .tabela-clientes td {
+            border: 1px solid #333;
+        }
+
+        .tabela-clientes td,
+        .tabela-clientes th {
+            padding: 10px;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer{
+            position: absolute;
+        }
+    </style>
+
 </head>
-
-<style>
-
-</style>
 
 <body>
 
@@ -43,11 +63,17 @@ $funcionario->verificarSessao($_SESSION['email'], $_SESSION['nome']);
         </div>
     </nav>
 
-    <?php
+    <div class="container">
+        <table class="tabela-clientes">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone/Celular</th>
+            </tr>
+            <?php require_once "acoes/consultar-clientes.php" ?>
+        </table>
+    </div>
 
-    require_once "acoes/consultar-clientes.php"
-    
-    ?>
 
     <footer>
         Fast Pizza® | 2019

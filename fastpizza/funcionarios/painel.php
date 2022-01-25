@@ -1,13 +1,5 @@
 <?php
-
-session_start();
-
-include_once '../class/Funcionario.php';
-
-$cliente = new Funcionario();
-
-$cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
-
+    require 'acoes/verificar-sessao.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +16,8 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <script type="text/javascript" src="../config/mainScript.js"></script>
     <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
-
-</head>
-
-<style>
+    
+    <style>
     .col-sm-4 {
         background-color: #666;
         text-align: center;
@@ -58,6 +48,10 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     }
 </style>
 
+</head>
+
+
+
 <body>
 
     <nav class="navbar">
@@ -73,14 +67,14 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <div class="row">
         <div class="col-sm-4">
             <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
-            <p><a href="telaclientes.php">Clientes</a></p>
+            <p><a href="tela-clientes.php">Clientes</a></p>
         </div>
         <?php
             if($_SESSION['cargo'] == 1){
                 echo '
             <div class="col-sm-4">
                 <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
-                <p><a href="telafuncionarios.php">Funcionários</a></p>
+                <p><a href="tela-funcionarios.php">Funcionários</a></p>
             </div>
                 ';
             }
@@ -89,11 +83,11 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <div class="row">
         <div class="col-sm-4">
             <img class="icon-modulo" src="../img/icons/modulos/produtos.png">
-            <p><a href="telaprodutos.php">Produtos</a></p>
+            <p><a href="tela-produtos.php">Produtos</a></p>
         </div>
         <div class="col-sm-4">
             <img class="icon-modulo" src="../img/icons/modulos/vendas.png">
-            <p><a href="telavendas.php">Vendas</a></p>
+            <p><a href="tela-vendas.php">Vendas</a></p>
         </div>
     </div>
 
