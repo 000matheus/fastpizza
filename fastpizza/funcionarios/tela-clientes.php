@@ -1,5 +1,6 @@
 <?php
 require 'acoes/verificar-sessao.php';
+require_once "acoes/consultar-clientes.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +19,7 @@ require 'acoes/verificar-sessao.php';
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
 
     <style>
-
-        .container{
+        .container {
             margin: 30px auto;
         }
 
@@ -29,8 +29,13 @@ require 'acoes/verificar-sessao.php';
         }
 
         .tabela-clientes,
-        .tabela-clientes td {
+        .tabela-clientes td,
+        .tabela-clientes th {
             border: 1px solid #333;
+        }
+
+        .tabela-clientes th {
+            background-color: #7C7C7C;
         }
 
         .tabela-clientes td,
@@ -44,8 +49,22 @@ require 'acoes/verificar-sessao.php';
             color: inherit;
         }
 
-        footer{
+        footer {
             position: absolute;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        form span {
+            padding: 5px;
+            margin: 5px;
         }
     </style>
 
@@ -64,16 +83,27 @@ require 'acoes/verificar-sessao.php';
     </nav>
 
     <div class="container">
+        <h1>Clientes</h1>
         <table class="tabela-clientes">
             <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Telefone/Celular</th>
             </tr>
-            <?php require_once "acoes/consultar-clientes.php" ?>
-        </table>
-    </div>
+            <?php
+            foreach ($consultaCliente as $linha) {
+                echo '<tr>
+                    <td><a href="form-clientes.php?id=' . $linha['id'] . '">' . $linha['nome'] . '</a></td>
+                    <td>' . $linha['email'] . '</td>
+                    <td>' . $linha['tel'] . '</td>
+                </tr>';
+            }
+            ?>
 
+
+        </table>
+
+    </div>
 
     <footer>
         Fast Pizza® | 2019

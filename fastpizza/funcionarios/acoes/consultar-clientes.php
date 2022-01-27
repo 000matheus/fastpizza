@@ -6,16 +6,9 @@ $cliente = new Cliente();
 
 if(isset($_GET['clienteId'])){
     $cliente->setId($_GET['clienteId']);
+    //setar objeto cliente (Alterar função "SelectCliente" na classe retornando os dados no construtor)
 }
 
-$consulta = $cliente->SelectCliente();
-
-foreach ($consulta as $linha) {
-    echo '<tr>
-        <td><a href="tela-editar-clientes.php?id='.$linha['id'].'">'.$linha['nome'].'</a></td>
-        <td>'.$linha['email'].'</td>
-        <td>'.$linha['tel'].'</td>
-    </tr>';
-}
+$consultaCliente = $cliente->SelectCliente();
 
 ?>
