@@ -13,20 +13,26 @@
 	<link rel="stylesheet" type="text/css" href="../config/style-dark.css">
 	<link rel="icon" type="imagem/png" href="../img/logo.png" />
 
+	<style>
+		footer{
+			position: absolute;
+		}
+	</style>
+
 </head>
 
 <body>
-		<div class="logo-inicial" id="logo-inicial">
-			<img src="../img/logo.png">
-		</div>
+	<div class="logo-inicial" id="logo-inicial">
+		<img src="../img/logo.png">
+	</div>
 
-		<div class="container" id="form-login">
-			<form method="post" action="acoes/login.php">
-				<input type="text" id="login-email" name="email" placeholder="E-mail">
-				<input type="password" id="login-senha" name="senha" placeholder="Senha">
-				<input type="submit" id="entrar" value="Entrar">
-			</form>
-		</div>
+	<div class="container" id="form-login">
+		<form method="post" action="acoes/login.php">
+			<input type="text" id="login-email" name="email" placeholder="E-mail">
+			<input type="password" id="login-senha" name="senha" placeholder="Senha">
+			<input type="submit" id="entrar" value="Entrar">
+		</form>
+	</div>
 
 	<footer>
 		Fast Pizza® | 2019

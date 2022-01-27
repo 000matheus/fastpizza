@@ -40,6 +40,10 @@ h6{
 	text-decoration: none;
 }
 
+.logo-nav img{
+	height: 60px;
+}
+
 .side-menu{
 	height: 100%; /* 100% Full-height */
 	width: 0; /* 0 width - change this with JavaScript */

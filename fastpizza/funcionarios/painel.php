@@ -1,14 +1,7 @@
 <?php
-
-session_start();
-
-include_once '../class/Funcionario.php';
-
-$cliente = new Funcionario();
-
-$cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
-
+    require 'acoes/verificar-sessao.php';
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -23,15 +16,80 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
     <script type="text/javascript" src="../config/mainScript.js"></script>
     <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
     <link rel="icon" type="imagem/png" href="../img/logo.png" />
+    
+    <style>
+    .col-sm-4 {
+        background-color: #666;
+        text-align: center;
+        margin: 20px auto;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .row {
+        width: 90%;
+        margin: auto;
+    }
+
+    .row p {
+        padding: 10px;
+    }
+
+    footer {
+        position: absolute;
+    }
+
+    a{
+        color: inherit;
+    }
+
+    a:hover{
+        color: #fff;
+    }
+</style>
 
 </head>
 
+
+
 <body>
-    <div class="logo-inicial" id="logo-inicial">
-        <img src="../img/logo.png">
+
+    <nav class="navbar">
+        <div class="logo-nav" id="logo-nav">
+            <img src="../img/logo.png">
+        </div>
+        <div class="navbar-links">
+            <a href="#" class="link-menu">Nome de Usuário</a>|
+            <a href="acoes/logout.php" class="link-menu">Sair</a>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
+            <p><a href="tela-clientes.php">Clientes</a></p>
+        </div>
+        <?php
+            if($_SESSION['cargo'] == 1){
+                echo '
+            <div class="col-sm-4">
+                <img class="icon-modulo" src="../img/icons/modulos/funcionarios.png">
+                <p><a href="tela-funcionarios.php">Funcionários</a></p>
+            </div>
+                ';
+            }
+        ?>   
     </div>
-
-
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/produtos.png">
+            <p><a href="tela-produtos.php">Produtos</a></p>
+        </div>
+        <div class="col-sm-4">
+            <img class="icon-modulo" src="../img/icons/modulos/vendas.png">
+            <p><a href="tela-vendas.php">Vendas</a></p>
+        </div>
+    </div>
 
     <footer>
         Fast Pizza® | 2019

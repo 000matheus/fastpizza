@@ -33,6 +33,10 @@ class Funcionario
 		return $this->email;
 	}
 
+	public function setId($id){
+		$this->id = $id;
+	}
+
 	public function setEmail($email)
 	{
 		$this->email = $email;
@@ -117,6 +121,7 @@ class Funcionario
 			$_SESSION['id'] = $usuario['id'];
 			$_SESSION['email'] = $usuario['email'];
 			$_SESSION['nome'] = $usuario['nome'];
+			$_SESSION['cargo'] = $usuario['cargo'];
 			//echo "Login realizado! Redirecionando para o painel de usuário...";
 			header("Location: $redirecionamento");
 			exit;
