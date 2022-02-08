@@ -9,4 +9,3 @@ $cliente->InsertCliente($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST
 
 exit;
 ?>
-

@@ -51,7 +51,7 @@ class Cliente
 		$this->id = $id;
 	}
 
-	public function SelectCliente()
+	public function SelectCliente($id)
 	{
 		require_once 'Conexao.php';
 
@@ -59,16 +59,23 @@ class Cliente
 			$conexao = new Conexao();
 			$pdo = $conexao->getPDO();
 
-			if (isset($this->id)) {
-				$sql = "SELECT * FROM clientes WHERE id = $this->id";
-			} else {
+			//$id = $this->id;
+
+			if (isset($id)) {
+				$sql = "SELECT * FROM clientes WHERE id = $id";
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
+				$resultado = $stmt->fetch(PDO::FETCH_ASSOC); //fetch para um único registro.
+			}
+			else {
 				$sql = "SELECT * FROM clientes";
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
+				$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC); //fetch para mais de um registro.
 			}
 
-			$stmt = $pdo->prepare($sql);
-			$stmt->execute();
-			$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 
@@ -107,7 +114,8 @@ class Cliente
 			$stmt->bindParam(':telefone', $this->telefone);
 
 			$stmt->execute();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 	}
@@ -141,7 +149,8 @@ class Cliente
 			$stmt->bindParam(':uf', $this->uf);
 
 			$stmt->execute();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 	}
@@ -168,7 +177,8 @@ class Cliente
 			$stmt->bindParam(':senha', $this->senha);
 
 			$stmt->execute();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 
@@ -179,7 +189,8 @@ class Cliente
 			session_destroy();
 			header("Location: ../falhalogin.html");
 			exit;
-		} else {
+		}
+		else {
 			// pega o primeiro usuário
 			$usuario = $users[0];
 			$_SESSION['id'] = $usuario['id'];
@@ -212,7 +223,8 @@ class Cliente
 			$stmt->bindParam(":id", $this->id);
 
 			$stmt->execute();
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 	}
@@ -233,14 +245,16 @@ class Cliente
 			$stmt = $pdo->query($sql);
 
 			$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		} catch (Exception $e) {
+		}
+		catch (Exception $e) {
 			echo $e->getMessage();
 		}
 
 		if ($resultado[0]['senha'] != $this->senha) {
 			header("Location: $redirecionamento");
 			exit;
-		} else {
+		}
+		else {
 			return true;
 		}
 	}
@@ -255,8 +269,9 @@ class Cliente
 			session_destroy();
 			header("Location: falhalogin.html");
 			exit;
-		} else {
-			// echo "<h1>SEM TEMPO IRMÃO</h1>";
+		}
+		else {
+		// echo "<h1>SEM TEMPO IRMÃO</h1>";
 		}
 	}
 }

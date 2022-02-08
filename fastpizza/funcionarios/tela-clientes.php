@@ -93,7 +93,7 @@ require_once "acoes/consultar-clientes.php";
             <?php
             foreach ($consultaCliente as $linha) {
                 echo '<tr>
-                    <td><a href="form-clientes.php?id=' . $linha['id'] . '">' . $linha['nome'] . '</a></td>
+                    <td><a href="form-clientes.php?clienteId=' . $linha['id'] . '">' . $linha['nome'] . '</a></td>
                     <td>' . $linha['email'] . '</td>
                     <td>' . $linha['tel'] . '</td>
                 </tr>';
