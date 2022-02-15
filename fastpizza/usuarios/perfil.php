@@ -10,6 +10,10 @@ $cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
 
 $form = $cliente->SelectCliente($_SESSION['id']);
 
+if(isset($_GET['msg']) && $_GET['msg'] == 0){
+	echo "<script>alert('Perfil Alterado com Sucesso!');</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,21 +43,7 @@ $form = $cliente->SelectCliente($_SESSION['id']);
 	</style>
 
 	<script type="text/javascript">
-		function CarregaEstado($estado){
-			switch($estado) {
-				case "RJ":
-					var option = document.getElementById('uf_rj');
-					option.setAttribute("selected","selected");
-				break;
-				case "SP":
-					var option = document.getElementById('uf_sp');
-					option.setAttribute("selected","selected");
-				break;
-				case "MG":
-					var option = document.getElementById('uf_mg');
-					option.setAttribute("selected","selected");
-			}
-		}
+		CarregaEstado("<?php echo $form['uf']; ?>");
 	</script>
 </head>
 <body>
@@ -149,18 +139,6 @@ $form = $cliente->SelectCliente($_SESSION['id']);
 	<footer>
 		Fast Pizza® | 2019
 	</footer>
-
-	<?php
-		if (!isset($_GET['msg'])) {
-			
-		}else if($_GET['msg'] == 0){
-			echo "<script>alert('Perfil Alterado com Sucesso!');</script>";
-		}
-	?>
-
-	<script type="text/javascript">
-		CarregaEstado("<?php echo $form['uf']; ?>");
-	</script>
 
 </body>
 </html>

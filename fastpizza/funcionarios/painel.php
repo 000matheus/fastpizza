@@ -67,7 +67,7 @@
     <div class="row">
         <div class="col-sm-4">
             <img class="icon-modulo" src="../img/icons/modulos/clientes.png">
-            <p><a href="tela-clientes.php">Clientes</a></p>
+            <p><a href="modulo-clientes/">Clientes</a></p>
         </div>
         <?php
             if($_SESSION['cargo'] == 1){

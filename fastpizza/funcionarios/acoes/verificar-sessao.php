@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once '../class/Funcionario.php';
+include_once '../../class/Funcionario.php';
 
 $cliente = new Funcionario();
 

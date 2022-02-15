@@ -1,7 +1,10 @@
 <?php
-require 'acoes/verificar-sessao.php';
-
+require '../acoes/verificar-sessao.php';
 require 'acoes/consultar-clientes.php';
+
+if(isset($_GET['msg']) && $_GET['msg'] == 0){
+	echo "<script>alert('Cliente alterado com sucesso!');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +19,8 @@ require 'acoes/consultar-clientes.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../config/mainScript.js"></script>
-    <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
-    <link rel="icon" type="imagem/png" href="../img/logo.png" />
+    <link rel="stylesheet" type="text/css" href="../../config/style-dark.css">
+    <link rel="icon" type="imagem/png" href="../../img/logo.png" />
 
     <style>
         .container {
@@ -37,6 +40,10 @@ require 'acoes/consultar-clientes.php';
             padding: 5px;
             margin: 5px;
         }
+
+        a{
+            color: #fff;
+        }
     </style>
 
 </head>
@@ -45,7 +52,7 @@ require 'acoes/consultar-clientes.php';
 
     <nav class="navbar">
         <div class="logo-nav" id="logo-nav">
-            <img src="../img/logo.png">
+            <img src="../../img/logo.png">
         </div>
         <div class="navbar-links">
             <a href="#" class="link-menu">Nome de Usuário</a>|
@@ -54,11 +61,20 @@ require 'acoes/consultar-clientes.php';
     </nav>
 
     <div class="container">
+
+        <p>
+            <a href="../modulo-clientes/">Voltar</a>
+        </p>
+        
         <h1>Clientes</h1>
 
-        <form>
+        <form method="POST" action="acoes/alterar-cliente.php">
         <fieldset>
 					<legend>Alterar Perfil</legend>
+                    <p>
+						<label for="form_id">Id:</label><br>
+						<input type="text" name="id" id="form_id" size="30" readonly value="<?php echo $consultaCliente['id']; ?>" required>
+					</p>
 					<p>
 						<label for="form_nome">Nome:</label><br>
 						<input type="text" name="nome" id="form_nome" size="30" maxlength="30" value="<?php echo $consultaCliente['nome']; ?>" required>
