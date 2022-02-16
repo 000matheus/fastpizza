@@ -78,11 +78,12 @@ require "acoes/consultar-clientes.php";
         </div>
         <div class="navbar-links">
             <a href="#" class="link-menu">Nome de Usuário</a>|
-            <a href="acoes/logout.php" class="link-menu">Sair</a>
+            <a href="../acoes/logout.php" class="link-menu">Sair</a>
         </div>
     </nav>
 
     <div class="container">
+        <p><a href="form-clientes.php">Adicionar Cliente</a></p>
         <h1>Clientes</h1>
         <table class="tabela-clientes">
             <tr>
@@ -99,7 +100,6 @@ require "acoes/consultar-clientes.php";
                 </tr>';
             }
             ?>
-
 
         </table>
 

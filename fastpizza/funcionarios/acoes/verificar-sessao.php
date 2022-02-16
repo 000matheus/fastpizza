@@ -2,10 +2,15 @@
 
 session_start();
 
-include_once '../../class/Funcionario.php';
+if (is_dir("../class/")) {
+    require_once '../class/Funcionario.php';
+}
+else if (is_dir('../../class/')) {
+    require_once '../../class/Funcionario.php';
+}
 
-$cliente = new Funcionario();
+$funcionario = new Funcionario();
 
-$cliente->verificarSessao($_SESSION['email'], $_SESSION['nome']);
+$funcionario->verificarSessao($_SESSION['email'], $_SESSION['nome']);
 
 ?>

@@ -56,7 +56,7 @@ if(isset($_GET['msg']) && $_GET['msg'] == 0){
         </div>
         <div class="navbar-links">
             <a href="#" class="link-menu">Nome de Usuário</a>|
-            <a href="acoes/logout.php" class="link-menu">Sair</a>
+            <a href="../acoes/logout.php" class="link-menu">Sair</a>
         </div>
     </nav>
 
@@ -68,32 +68,55 @@ if(isset($_GET['msg']) && $_GET['msg'] == 0){
         
         <h1>Clientes</h1>
 
-        <form method="POST" action="acoes/alterar-cliente.php">
+        <?php
+            if(isset($consultaCliente['id'])){
+                echo "<form method='POST' action='acoes/alterar-cliente.php'>";
+            }else{
+                echo "<form method='POST' action='acoes/adicionar-cliente.php'>";
+            }
+        ?>
+        
         <fieldset>
 					<legend>Alterar Perfil</legend>
-                    <p>
-						<label for="form_id">Id:</label><br>
-						<input type="text" name="id" id="form_id" size="30" readonly value="<?php echo $consultaCliente['id']; ?>" required>
-					</p>
+
+                    <?php 
+                        if (isset($consultaCliente['id'])) {
+                            echo '<p>
+                            <label for="form_id">Id:</label><br>
+                            <input type="text" name="id" id="form_id" size="30" readonly value="'.$consultaCliente['id'].'" required>
+                        </p>';
+                        }
+                    ?>
+                    
 					<p>
 						<label for="form_nome">Nome:</label><br>
-						<input type="text" name="nome" id="form_nome" size="30" maxlength="30" value="<?php echo $consultaCliente['nome']; ?>" required>
+						<input type="text" name="nome" id="form_nome" size="30" maxlength="30" value="<?php
+                        echo isset($consultaCliente['nome']) ? $consultaCliente['nome'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
 						<label for="form_email">Email:</label><br>
-						<input type="email" name="email" id="form_email" size="30" maxlength="50" value="<?php echo $consultaCliente['email']; ?>" required>
+						<input type="email" name="email" id="form_email" size="30" maxlength="50" value="<?php
+                        echo isset($consultaCliente['email']) ? $consultaCliente['email'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
 						<label for="form_endereco">Endereço:</label><br>
-						<input type="text" name="endereco" id="form_endereco" size="30" maxlength="50" value="<?php echo $consultaCliente['endereco']; ?>" required>
+						<input type="text" name="endereco" id="form_endereco" size="30" maxlength="50" value="<?php
+                        echo isset($consultaCliente['endereco']) ? $consultaCliente['endereco'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
 						<label for="form_bairro">Bairro:</label><br>
-						<input type="text" name="bairro" id="form_bairro" size="30" maxlength="30" value="<?php echo $consultaCliente['bairro']; ?>" required>
+						<input type="text" name="bairro" id="form_bairro" size="30" maxlength="30" value="<?php
+                        echo isset($consultaCliente['bairro']) ? $consultaCliente['bairro'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
 						<label for="form_cidade">Cidade:</label><br>
-						<input type="text" name="cidade" id="form_cidade" size="30" maxlength="30" value="<?php echo $consultaCliente['cidade']; ?>" required>
+						<input type="text" name="cidade" id="form_cidade" size="30" maxlength="30" value="<?php
+                        echo isset($consultaCliente['cidade']) ? $consultaCliente['cidade'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
 						<label for="form_uf">Estado:</label><br>
@@ -105,10 +128,12 @@ if(isset($_GET['msg']) && $_GET['msg'] == 0){
 					</p>
 					<p>
 						<label for="form_telefone">Telefone ou celular:</label><br>
-						<input type="text" name="telefone" id="form_telefone" size="30" maxlength="11" value="<?php echo $consultaCliente['tel']; ?>" required>
+						<input type="text" name="telefone" id="form_telefone" size="30" maxlength="11" value="<?php
+                        echo isset($consultaCliente['tel']) ? $consultaCliente['tel'] : ""; 
+                         ?>" required>
 					</p>
 					<p>
-						<button type="submit" class="btn btn-primary">Alterar</button>
+						<button type="submit" class="btn btn-primary">Enviar</button>
 					</p>
 				</fieldset>
         </form>
