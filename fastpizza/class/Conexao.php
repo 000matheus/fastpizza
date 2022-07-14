@@ -5,15 +5,15 @@
  */
 class Conexao{
 
-	private $login = "root";
-	private $senha = "";
-	protected $database = "mysql:host=localhost;dbname=fastpizza;charset=utf8";
+	private const LOGIN = "root";
+	private const SENHA = "";
+	protected const DB = "mysql:host=localhost;dbname=fastpizza;charset=utf8";
 	protected $pdo;
 
 	function __construct()
 	{
 		try{
-			$this->pdo = new PDO($this->database, $this->login, $this->senha);
+			$this->pdo = new PDO(self::DB, self::LOGIN, self::SENHA);
 			date_default_timezone_set('America/Sao_Paulo');
 		}
 		catch(PDOException $e){
