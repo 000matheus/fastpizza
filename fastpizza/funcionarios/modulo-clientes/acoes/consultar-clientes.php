@@ -1,6 +1,6 @@
 <?php
 
-require_once "../class/Cliente.php";
+require_once "../../class/Cliente.php";
 
 $cliente = new Cliente();
 

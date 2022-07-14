@@ -1,6 +1,6 @@
 <?php
-require 'acoes/verificar-sessao.php';
-require_once "acoes/consultar-clientes.php";
+require '../acoes/verificar-sessao.php';
+require "acoes/consultar-clientes.php";
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +15,8 @@ require_once "acoes/consultar-clientes.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../config/mainScript.js"></script>
-    <link rel="stylesheet" type="text/css" href="../config/style-dark.css">
-    <link rel="icon" type="imagem/png" href="../img/logo.png" />
+    <link rel="stylesheet" type="text/css" href="../../config/style-dark.css">
+    <link rel="icon" type="imagem/png" href="../../img/logo.png" />
 
     <style>
         .container {
@@ -74,15 +74,16 @@ require_once "acoes/consultar-clientes.php";
 
     <nav class="navbar">
         <div class="logo-nav" id="logo-nav">
-            <img src="../img/logo.png">
+            <img src="../../img/logo.png">
         </div>
         <div class="navbar-links">
             <a href="#" class="link-menu">Nome de Usuário</a>|
-            <a href="acoes/logout.php" class="link-menu">Sair</a>
+            <a href="../acoes/logout.php" class="link-menu">Sair</a>
         </div>
     </nav>
 
     <div class="container">
+        <p><a href="form-clientes.php">Adicionar Cliente</a></p>
         <h1>Clientes</h1>
         <table class="tabela-clientes">
             <tr>
@@ -99,7 +100,6 @@ require_once "acoes/consultar-clientes.php";
                 </tr>';
             }
             ?>
-
 
         </table>
 

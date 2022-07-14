@@ -120,7 +120,7 @@ class Cliente
 		}
 	}
 
-	public function UpdateCliente($id, $nome, $email, $endereco, $bairro, $cidade, $uf)
+	public function UpdateCliente($id, $nome, $email, $endereco, $bairro, $cidade, $uf, $telefone)
 	{
 		include "Conexao.php";
 
@@ -131,12 +131,13 @@ class Cliente
 		$this->bairro = $bairro;
 		$this->cidade = $cidade;
 		$this->uf = $uf;
+		$this->telefone = $telefone;
 
 		$conexao = new Conexao();
 		$pdo = $conexao->getPDO();
 
 		try {
-			$sql = "UPDATE clientes SET nome = :nome, email = :email, endereco = :endereco, bairro = :bairro, cidade = :cidade, uf = :uf WHERE id = :id";
+			$sql = "UPDATE clientes SET nome = :nome, email = :email, endereco = :endereco, bairro = :bairro, cidade = :cidade, uf = :uf, tel = :tel WHERE id = :id";
 
 			$stmt = $pdo->prepare($sql);
 
@@ -147,6 +148,7 @@ class Cliente
 			$stmt->bindParam(':bairro', $this->bairro);
 			$stmt->bindParam(':cidade', $this->cidade);
 			$stmt->bindParam(':uf', $this->uf);
+			$stmt->bindParam(':tel', $this->telefone);
 
 			$stmt->execute();
 		}
